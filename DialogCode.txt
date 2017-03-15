@@ -1,0 +1,4 @@
+new $.Zebra_Dialog('Incomplete Info !', {
+			    'custom_class':  'myclass',
+			    'title': 'Validation Error'
+});	

@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+
+		<meta name="viewport" content="user-scalable=no, width=device-width, height=device-height" />
+		<script>
+			//common
+			var mode = 0;//offline
+			var mode = 1;//online
+			var url_link = 'http://192.168.1.13:3000';//for server interaction
+			var url_link = 'http://54.255.180.226:3000';//for server interaction
+		</script>
+
+		<!--Library CSS-->
+		<link rel="stylesheet" href="lib/css/jquery.mobile-1.4.3.css" />
+		<!--Icons-->
+		<link type="text/css" href="flat-iconsFinal/flaticon.css" rel="stylesheet" />
+		<link type="text/css" href="lib/zebra/css/default/zebra_dialog.css" rel="stylesheet" />
+		<!--Jquery-->
+		<script type="text/javascript" src="lib/js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="lib/js/jquery.mobile-1.4.3.min.js"></script>
+		<script type="text/javascript" src="lib/zebra/javascript/zebra_dialog.js"></script>		
+		<!--DateFormat-->
+		<script type="text/javascript" src="lib/js/date.format.js"></script>
+		<!--SLICK Slider-->
+		<link rel="stylesheet" type="text/css" href="lib/css/slick.css"/>
+		<!--Custom Style-->
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<!--Mobiscroll Js-->
+		<script src="mobiscroll/js/mobiscroll.core.js"></script>
+		<script src="mobiscroll/js/mobiscroll.scroller.js" type="text/javascript"></script>
+		<script src="mobiscroll/js/mobiscroll.datetime.js" type="text/javascript"></script>
+		<script src="mobiscroll/js/mobiscroll.scroller.android.js" type="text/javascript"></script>
+		<!--Mobiscroll CSS-->
+		<link href="mobiscroll/css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+		<link href="mobiscroll/css/mobiscroll.scroller.android.css" rel="stylesheet" type="text/css" />
+		<link href="mobiscroll/css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+		<script src="mobiscroll/js/custom.js"></script>
+		<!--Map-->
+		<!--<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAaxvqEqDciytJ5Y_D34DfVkBdYNaGoxYk&sensor=true"></script>-->
+		<!--Validation-->
+		<script src="lib/js/validation.js"></script>
+		<script src="lib/servicejs/signup.js"></script>
+		<script src="lib/servicejs/signin.js"></script>
+		<script src="lib/servicejs/getvenedorlist.js"></script>
+		<script src="lib/servicejs/createbookings.js"></script>
+		<script src="lib/servicejs/changePassword.js"></script>
+		<script src="lib/servicejs/getBoookingList.js"></script>
+		<script src="lib/servicejs/personalInfo.js"></script>
+		<!-- custom js logic -->
+		<script type="text/javascript" src="js/index.js"></script>
+		<!-- swipe js -->
+		<script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+		<!-- Claender -->
+		<link href="lib/js/calender/jquery-ui.css" rel="stylesheet">
+		<script src="lib/js/calender/jquery-ui.js"></script>
+		<title>Ambulance App</title>
+	</head>
+	<body>
+		
+		<!--SignUp Page-->
+		<div id="signup" data-role="page" class="logContent">
+			<div data-role="header"class="bodyHeader" data-position="fixed">
+				<h1>SIGN UP</h1>
+			</div>
+
+			<div data-role="content" >
+				<br/>
+				<div id="input_container " >
+					<button class="no-shadow "style="background-color:#f8494a;color:#fff;margin-top:1%;">
+						Sign up now. It’s really easy!
+					</button>
+				</div>
+				<div id="input_container" class="box2">
+					<div class="input-mar"></div>
+					<div>
+						<input class="input-mar_input input" type="email" id="signup_email" placeholder="Email">
+					</div>
+				</div>
+
+				<div id="input_container" class="box2">
+					<div class="input-mar"></div>
+					<div>
+						<input class="input-mar_input input" type="password" id="signup_password" placeholder="Password">
+					</div>
+				</div>
+
+				<div id="input_container" class="box2">
+					<div class="input-mar"></div>
+					<div>
+						<input class="input-mar_input input" type="password" id="signup_conf_pass" placeholder="Confirm Password">
+					</div>
+				</div>
+				<div class="hidden">
+					<script>
+						var sign_up = [signup_email, signup_password, signup_conf_pass];
+					</script>
+				</div>
+				<div id="input_container">
+					<button data-rel="popup" class="btn3 margin-auto box2" style="width:100% !important;" onclick="signup_service(sign_up)">
+						SIGN UP
+					</button>
+				</div>
+
+				<div id="input_container " >
+					<button class="no-shadow "style="background-color:#f8494a;color:#fff;margin-top:4%;">
+						Already have a account?
+					</button>
+				</div>
+
+				<div id="input_container">
+					<button class="btn3 margin-auto box2" onclick="nextPage('signup','#login')">
+						LOGIN NOW
+					</button>
+				</div>
+
+			</div>			
+		</div><!--SignUp Close-->
+		
+		<!--Home Page-->
+		<div id="home" data-role="page">
+
+			<div data-role="header" class="bodyHeader" data-position="fixed" style="max-height:42px;">
+				<h3 class="myriad-pro" style="font-size:large;">Ambulance <sup> App</sup></h3>
+			</div>
+
+			<div data-role="content" class="bodyContent">
+
+				<div style="margin-top: 5%; alignment-baseline:middle;">
+					<div class="having-fun" align="center" >
+						<div class="grey"><img src="img/ambulance_conver.png">
+						</div>
+						<div class="grey"><img src="img/ambulance_conver.png">
+						</div>
+						<div class="grey"><img src="img/ambulance_conver.png">
+						</div>
+					</div>
+					<i style="position:absolute;top:120px;right:30px;color:black;" id="next" class="flaticon-next15 "></i>
+					<i style="position:absolute;top:120px; left:30px;color:black;" id="prev" class="flaticon-previous11 "></i>
+				</div>
+
+				<table class="homeButton"  style="border: none;">
+					<tr>
+						<td class="top-shadow"  onclick="change('#profile')" ><a>
+						<div style="height: 100%; text-align: center;  padding: 10px;" >
+
+							<div class="flaticon-male40 homeIcon"></div>
+							Profile
+						</div> </a></td>
+						<td onclick="change('#track')"><a>
+						<div style="height: 100%; text-align: center;  padding: 10px;" >
+							<div class="flaticon-position3 homeIcon"></div>
+							Track &amp; Trace
+						</div> </a></td>
+
+					</tr>
+					<tr>
+						<td onclick="moveTo('#select-date')"><a>
+						<div style="height: 100%; text-align: center;  padding: 10px;" >
+							<div class="flaticon-day20 homeIcon"></div>
+							Calender
+						</div> </a></td>
+						<td class="bottom-shadow"  onclick="change('#route')"><a>
+						<div style="height: 100%; text-align: center;  padding: 10px;" >
+							<div class="flaticon-edit38 homeIcon"></div>
+							Book Now
+						</div> </a></td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+
+		<!--Page Profile-->
+		<div id="profile" data-role="page">
+			<div data-role="header"class="bodyHeader" data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>Profile</h1>				
+			</div>
+			<div data-role="content" class="grey" >
+				<br/>
+				<div class="margin-shadow" style="text-align: center;" >
+					<div class="red">
+						<b class="flaticon-male40 red"></b>
+						<div style="display: inline; font-size:large;">
+							<span class="red">Albert Raymonds<span> <label style="text-transform:lowercase; font-size: small;">(raymondalbert@mail.com)</label>
+						</div>
+					</div>
+					<div class="margin">
+						<button class="ui-btn ui-corner-all btn3-dark-alt margin-auto" id='changepass' onclick="moveTo('#change-password')">
+							Change Password
+						</button>
+					</div>
+				</div>
+
+				<br/>
+				<div class="margin-shadow-try">
+					<label>Settings</label><br>
+					<a href="">
+					<div class="margin-shadow-try" onclick="moveTo('#personal_info')">
+						Personal Info<i class="flaticon-next15 profile-list-Icon"></i>
+					</div></a>
+					<a href="">
+					<div class="margin-shadow-try" onclick="moveTo('#medical_info')">
+						Medical Info<i class="flaticon-next15 profile-list-Icon"></i>
+					</div></a>
+					<a href="">
+					<div class="margin-shadow-try" onclick="moveTo('#payment_info')">
+						Payment Info<i class="flaticon-next15 profile-list-Icon"></i>
+					</div></a>
+					<a href="">
+					<div class="margin-shadow-try">
+						Notifications<i class="profile-list-Icon"><select id="flip-1" data-role="slider" >
+									        <option value="off">Off</option>
+									        <option value="on" selected="selected">On</option>
+					</select></i></div></a>
+					<a href="">
+					<div class="margin-shadow-try">
+						AutoLogin<i class="profile-list-Icon"><select id="flip-2" data-role="slider" >
+									        <option value="off">Off</option>
+									        <option value="on" selected="selected">On</option>
+					</select></i></div></a>
+					<a href="">
+					<div class="margin-shadow-try" onclick="logout()">
+						Logout<i class="flaticon-next15 profile-list-Icon"></i>
+					</div></a>
+					
+				</div>
+
+				<div class="margin-shadow-try">
+					<label>Info</label><br>
+					<a href="" onclick="nextPage('#profile','#about_us')">
+					<div class="margin-shadow-try">
+						About Us<i class="flaticon-next15 profile-list-Icon" ></i>
+					</div></a>
+					<a href="" onclick="nextPage('#profile','#help')">
+					<div class="margin-shadow-try">
+						Help<i class="flaticon-next15 profile-list-Icon" ></i>
+					</div></a>
+					<a href="" onclick="nextPage('#profile','#how_to_use')">
+					<div class="margin-shadow-try">
+						How To Use<i class="flaticon-next15 profile-list-Icon" ></i>
+					</div></a>
+					<a href="" onclick="nextPage('#profile','#help_line')">
+					<div class="margin-shadow-try">
+						Help Line<i class="flaticon-next15 profile-list-Icon" ></i>
+					</div></a>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar" class="footer-padding">
+					<ul>
+						<li class="tabsItem">
+							<a  href="#booking" data-role="tab" data-transition="none" class="flaticon-edit38 ">
+							<br/>
+							Booking </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#select-date" data-role="tab" data-transition="none"class="flaticon-round27">
+							<br/>
+							History </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#profile" data-role="tab"data-transition="none" class="flaticon-list23  ui-btn-active active">
+							<br/>
+							More </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<!--Change Password-->
+		<div id="change-password" data-role="page">
+			<div data-role="header"class="bodyHeader" data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>Change Password</h1>
+			</div>
+			<div data-role="content" class="grey">
+				<br/>
+				<div >
+					<div class="box2 margin-auto width-seventy">
+						<input type="password" class="input" id="old_password" placeholder="old password">
+					</div>
+					<br/>
+					<div class="box2 margin-auto width-seventy">
+						<input type="password" class="input" id="new_password" placeholder="new password">
+					</div>
+					<br/>
+					<div class="box2 margin-auto width-seventy">
+						<input type="password" class="input" id="confirm_password" placeholder="confirm password">
+					</div>
+
+				</div>
+				<div class="hidden">
+					<script>
+						var chng_pass = [old_password, new_password, confirm_password];
+					</script>
+				</div>
+				<br/>
+				<div class="margin">
+					<button class="ui-btn ui-corner-all btn3-dark-alt margin-auto" onclick="chngPass_service(chng_pass)">
+						Change Password
+					</button>
+				</div>
+
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar" class="footer-padding">
+					<ul>
+						<li class="tabsItem">
+							<a  href="#booking" data-role="tab" data-transition="none" class="flaticon-edit38 ">
+							<br/>
+							Booking </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#select-date" data-role="tab" data-transition="none"class="flaticon-round27">
+							<br/>
+							History </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#profile" data-role="tab"data-transition="none" class="flaticon-list23  ui-btn-active active">
+							<br/>
+							More </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!--Page Track & Trace -->
+		<div id="track" data-role="page">
+			<div data-role="header"class="bodyHeader" data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>Track & Trace</h1>
+			</div>
+
+			<div data-role="content" class="" >
+				<h1 style="margin-top: 50%;;text-align: center;color:black;">Trace</h1>
+			</div>
+
+		</div>
+
+		<!--Login Page-->
+		<div id="login" data-role="page" class="logContent">
+			<div data-role="header"class="bodyHeader" data-position="fixed">
+				<h1>LOGIN</h1>
+			</div>
+
+			<div data-role="content" >
+				<br/>
+
+				<div id="input_container" class="box2">
+					<div class="flaticon-email97" id="input-iconDiv"></div>
+					<div id="inputDiv">
+						<input type="email" class="input" id="signin_e" placeholder="email">
+					</div>
+				</div>
+
+				<div id="input_container" class="box2">
+					<div class="flaticon-padlock17" id="input-iconDiv"></div>
+					<div id="inputDiv">
+						<input type="password" class="input" id="signin_p" placeholder=" password">
+					</div>
+				</div>
+
+				<div id="input_container " >
+					<button class="no-shadow "style="background-color:#f8494a;color:#fff;margin-bottom:4%;">
+						Forgot Password?
+					</button>
+				</div>
+				<div class="hidden">
+					<script>
+						var sign_in = [signin_e, signin_p];
+					</script>
+				</div>
+				<div id="input_container" >
+					<button class="btn3 margin-auto box2" onclick="sign_in_service(sign_in)">
+						LOGIN
+					</button>
+				</div>
+
+				<div id="input_container" >
+					<button class="facebook margin-auto box2" >
+						Sign in with Facebook
+					</button>
+				</div>				
+			</div>
+
+			<!--
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+							<div data-role="navbar" class="footer-padding">
+								<ul>
+									<li class="tabsItem">
+										<a  href="#booking" data-role="tab" data-transition="none" class="flaticon-edit38 ">
+										<br/>
+										Booking </a>
+									</li>
+									<li class="tabsItem">
+										<a  href="#select-date" data-role="tab" data-transition="none"class="flaticon-round27">
+										<br/>
+										History </a>
+									</li>
+									<li class="tabsItem">
+										<a  href="#profile" data-role="tab"data-transition="none" class="flaticon-list23">
+										<br/>
+										More </a>
+									</li>
+								</ul>
+							</div>
+			</div>-->
+			
+		</div>
+
+		
+
+		<!--Page Setting-->
+		<div id="setting" data-role="page">
+			<div data-role="header"class="bodyHeader" data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>Setting</h1>
+			</div>
+
+			<div data-role="content" >
+
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar" class="footer-padding">
+					<ul>
+						<li class="tabsItem">
+							<a  href="#booking" data-role="tab" data-transition="none" class="flaticon-edit38 ui-btn-active active">
+							<br/>
+							Booking </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#select-date" data-role="tab" data-transition="none"class="flaticon-round27">
+							<br/>
+							History </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#profile" data-role="tab"data-transition="none" class="flaticon-list23">
+							<br/>
+							More </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!--Page Route-->
+		<div id="route" data-role="page">
+			<div data-role="header"class="bodyHeader" data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>Route</h1>
+			</div>
+
+			<div data-role="content">
+				<div style="background-color: #a4a4a4;">
+					<div class="head-back">
+						<img src="img/route_status.jpg" width="100%"/>
+					</div>
+				</div>
+				<div  style="padding: 5%;">
+
+					<label>From</label>
+
+					<div style="width: 80%;position: relative;  ">
+						<div class="ui-btn-icon-right ui-icon-delete clear1"  style="position: absolute; top: 50%; right: 5px; background-color: red; display: inline;color: grey; margin-left:80%;"></div>
+						<div class="flaticon-position3"  style="position:absolute; z-index: 10; top:0%; right: -60px; color: red; " onclick="nextPage('#textarea_from1','#route1')"></div>
+						<textarea  id="textarea_from1" class="border box" style="padding-right:40px;width: 100%" placeholder="From" onclick="nextPage('#textarea_from1','#route2')"></textarea>
+					</div>
+					<textarea id="textarea_from2" class="border box"placeholder="Additional Notes" ></textarea>
+ 					<br/>
+					<label>To</label>
+
+					<div style="width: 80%;position: relative;  ">
+						<div class="ui-btn-icon-right ui-icon-delete clear2"  style="position: absolute; top: 50%; right: 5px; background-color: red; display: inline;color: grey; margin-left:80%;"></div>
+						<div class="flaticon-position3"  style="position:absolute; z-index: 10; top:0%; right: -60px; color: red; " onclick="nextPage('#textarea_to1','#route1')"></div>
+						<textarea  id="textarea_to1" class="border box" style="padding-right:40px;width: 100%" placeholder="To" onclick="nextPage('#textarea_to1','#route2')"></textarea>
+					</div>
+					<textarea  id="textarea_to2" class="border box"placeholder="Additional Notes" ></textarea>
+										
+
+
+					<button onclick="createB('#route', '#booking')" class="btn3 no-shadow margin-auto box">
+						Next
+					</button>
+
+				</div>
+
+			</div>
+
+			<div data-role="footer" data-position="fixed" >
+				<div data-role="navbar" class="footer-padding">
+					<ul>
+						<li class="tabsItem">
+							<a  href="#booking" data-role="tab" data-transition="none" class="flaticon-edit38 ui-btn-active active">
+							<br/>
+							Booking </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#select-date" data-role="tab" data-transition="none"class="flaticon-round27">
+							<br/>
+							History </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#profile" data-role="tab"data-transition="none" class="flaticon-list23">
+							<br/>
+							More </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!--TABS Page Route 1-->
+		<div id="route1" data-role="page">
+			<div data-role="header"class="bodyHeader" data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>Route</h1>
+				<div data-role="navbar" class="box2">
+					<ul class="listPage">
+						<li id="byList" >
+							<a href="#" class="pad">By List</a>
+						</li>
+						<li id="byMap">
+							<a onclick="noHistory('#route2');" data-transition="none" class="pad">By Map</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div data-role="content">
+
+				<div id="expand" onclick="collapseToggle(this)"
+				class="ui-collapsible-heading-toggle ui-btn ui-btn-icon-left ui-btn-inherit ui-icon-plus collapse-item margin-shadow collapse-left-pad">
+					Hospitals
+				</div>
+
+				<div id="collapse" class="collapse-list collapse-close" >
+					<ul class="from_to_List" data-role="listview">
+						<li data-icon="false" id="" >
+							<a class="margin-shadow list-divider collapse-left-pad">General Hospitals</a>
+						</li>
+						<li data-icon="false" id="h1">
+							<a  class="margin-shadow collapse-left-pad">Alexandra Hospital</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Changi General Hospital (CGH)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Gleneagles Hospital</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Mount Alvernia Hospital</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">National University Hospital (NUH)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Parkway East Hospital (former East Shore Hospital)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Raffles Hospital</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Singapore General Hospital (SGH)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Khoo Teck Puat Hospital (KTPH)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Tan Tock Seng Hospital (TTSH)</a>
+						</li>
+
+					</ul>
+				</div>
+				<div id="expand" onclick="collapseToggle(this)"
+				class="ui-collapsible-heading-toggle ui-btn ui-btn-icon-left ui-btn-inherit ui-icon-plus collapse-item margin-shadow collapse-left-pad">
+					Outpatient
+				</div>
+
+				<div id="collapse" class="collapse-list collapse-close" >
+					<ul class="from_to_List" data-role="listview">
+						<li data-icon="false" id="">
+							<a class="margin-shadow list-divider collapse-left-pad">General Hospitals</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Alexandra Hospital</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Changi General Hospital (CGH)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Gleneagles Hospital</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Mount Alvernia Hospital</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">National University Hospital (NUH)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Parkway East Hospital (former East Shore Hospital)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Raffles Hospital</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Singapore General Hospital (SGH)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Khoo Teck Puat Hospital (KTPH)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Tan Tock Seng Hospital (TTSH)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Community Hospitals</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Ang Mo Kio-Thye Hua Kwan Hospital Ltd</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Bright Vision Hospital</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Kwong Wai Shiu Hospital And Nursing Home</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Ren Ci Long Term Care (Hougang)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Ren Ci Community Hospital</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Ren Ci Nursing Home</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">St Andrew's Community Hospital (SACH)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">St Luke's Hospital</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Specialists Hospitals & Institutions</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Adam Road Medical Centre (former Adam Road Hospital)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Institute Of Mental Health (IMH) (former Woodbridge Hospital)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Johns Hopkins Singapore International Medical Centre (IMC)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">KK Women's And Children's Hospital (KKH)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Mount Alvernia Hospital</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Mount Elizabeth Hospital</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">National Cancer Centre Singapore (NCCS)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">National Dental Centre of Singapore (NDC)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">National Heart Centre Singapore (NHCS)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">National Neuroscience Institute (NNI)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">National Skin Centre (NSC)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Singapore National Eye Centre (SNEC)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Thomson Medical Centre (TMC)</a>
+						</li>
+
+					</ul>
+				</div>
+				<div id="expand" onclick="collapseToggle(this)"
+				class="ui-collapsible-heading-toggle ui-btn ui-btn-icon-left ui-btn-inherit ui-icon-plus collapse-item margin-shadow collapse-left-pad">
+					Clinic
+				</div>
+
+				<div id="collapse" class="collapse-list collapse-close">
+					<ul class="from_to_List" data-role="listview">
+						<li data-icon="false" id="">
+							<a class="margin-shadow  list-divider collapse-left-pad">Polyclinic</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Ang Mo Kio Polyclinic (NHG)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Bedok Polyclinic (Singhealth)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Bukit Batok Polyclinic (NHG)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Bukit Merah Polyclinic (Singhealth)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Choa Chu Kang Polyclinic (NHG)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Clementi Polyclinic (NHG)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Geylang Polyclinic (Singhealth)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Hougang Polyclinic (NHG)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Jurong Polyclinic (NHG)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Marine Parade Polyclinic (Singhealth)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Outram Polyclinic (Singhealth)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Pasir Ris Polyclinic (Singhealth)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Queenstown Polyclinic (Singhealth)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Sengkang Polyclinic (Singhealth)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Tampines Polyclinic (Singhealth)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Toa Payoh Polyclinic (NHG)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Woodlands Polyclinic (NHG)</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Yishun Polyclinic (NHG)</a>
+						</li>
+
+					</ul>
+				</div>
+
+				<div id="expand" onclick="collapseToggle(this)"
+				class="ui-collapsible-heading-toggle ui-btn ui-btn-icon-left ui-btn-inherit ui-icon-plus collapse-item margin-shadow collapse-left-pad">
+					Dialysis
+				</div>
+
+				<div id="collapse" class="collapse-list collapse-close " >
+					<ul class="from_to_List" data-role="listview">
+
+						<li data-icon="false" id="">
+							<a class="margin-shadow  list-divider collapse-left-pad">NKF</a>
+						</li>
+
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">AMK Ave 9</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">AMK Ave 3</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">AMK Ave 6</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Woodlands Ave 5</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Woordlands St 81</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Yishun</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Hougang Ave 8</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Hougang Ave 1</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Serangoon</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Aljunied</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Bedok</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Pasir Ris</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Simei</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Tampinies St 91</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Tampinies St 21</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Bukit Batok</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Bukit Panjang</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Clementi</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Hong Kah</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Juring West</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Teck Whye</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Ghim Moh</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Kim Keat</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Toa Payoh</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Upp Boon Keng</a>
+						</li>
+						<li data-icon="false" id="">
+							<a class="margin-shadow  list-divider collapse-left-pad">KDF</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Bishan</a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">San Wang Wu Ti </a>
+						</li>
+						<li data-icon="false" id="">
+							<a  class="margin-shadow collapse-left-pad">Ghim Moh</a>
+						</li>
+
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+		</div>
+
+		<!--TABS Page Route 2-->
+		<div id="route2" data-role="page">
+			<div data-role="header"class="bodyHeader" data-position="fixed">
+				<a data-rel="back" class="header-btn ui-nodisc-icon"  data-icon="back"   style="padding-left: 20px;">BACK</a>
+				<h1>Route</h1>
+				<div data-role="navbar" class="box2">
+					<ul class="mapPage">
+						<li id="byList" >
+							<a onclick="noHistory('#route1');" data-transition="none" class="pad">By List</a>
+						</li>
+						<li id="byMap">
+							<a href="#" class="pad">By Map</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div data-role="content">
+				<div id="">
+					<textarea id="selectedAddress" placeholder="from" style="border:0 !important;" ></textarea>
+				</div>
+				<div id="map-canvas"></div>
+			</div>
+			<div data-role="footer"  data-position="fixed" data-tap-toggle="false">
+				<div data-role="navbar" class="fixed" >
+					<ul calss="routeFooter">
+						<li id="confirm" onclick="nextPage('#confirm','#route')">
+							<a href="#" data-transition="none" class="">Confirm</a>
+						</li>
+						<li id="locate-me" onclick="nextPage('#locate-me','#route')">
+							<a href="#" class="">Locate Me</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!--Booking Page-->
+		<div data-role="page"  id="booking">
+			<div data-role="header"class="bodyHeader" data-position="fixed">
+				<a data-rel="back" class="header-btn ui-nodisc-icon"  data-icon="back" style="padding-left:10px;">&emsp;Route</a>
+				<h1>Customize</h1>
+
+			</div>
+
+			<div data-role="content">
+				<div style="background-color: #a4a4a4;">
+					<div class="head-back">
+						<img src="img/booking-status.jpg" width="100%"/>
+					</div>
+				</div>
+
+				<div class="margin-content pad-complete">
+
+					<div id="input_container full-width" class="box">
+						<input id="bookingDateTime" class="input demo-test-datetime no-border" placeholder="Select Date and Time" style="text-align: center;"/>
+					</div>
+					<br>
+					<div class="box">
+						<label class="grey" style="text-align: center;">Service Type</label>
+						<div data-role="navbar">
+							<table width="100%">
+								<tr>
+									<td id="type-ambulance-ser" style="width: 50%;" class="btn2 text-align" onclick="change('#type-ambulance')">
+										Ambulance
+										<br/>
+										<span id ="book_ambulance" style="font-size: small;">&nbsp;</span>										
+									</td>
+									<td id="type-medical-ser" style="width: 50%;" class="btn2 text-align" onclick="change('#type-medical')">
+										Medical
+										<br/>
+										Transport
+										<br>
+										<span id ="book_medical" style="font-size: small;"></span>
+									</td>
+								</tr>
+							</table>							
+						</div><!-- /navbar -->
+					</div>
+
+					<div>
+						<label class="grey" style="text-align: center; margin-top: 5% !important;">Special Notes</label>
+						<textarea id ="book_notes" class="border box"  placeholder="e.g. Medical History, Conditions ..." ></textarea >
+					</div>
+
+					<button onclick="createB('#booking','#match')" class="btn3 no-shadow margin-auto box">
+						Next
+					</button>
+				</div>
+			</div>
+
+			<div data-role="footer"  data-position="fixed">
+				<div data-role="navbar" class="footer-padding">
+					<ul>
+						<li class="tabsItem">
+							<a  href="#booking" data-role="tab" data-transition="none" class="flaticon-edit38 ui-btn-active active">
+							<br/>
+							Booking </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#select-date" data-role="tab" data-transition="none"class="flaticon-round27 ">
+							<br/>
+							History </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#profile" data-role="tab"data-transition="none" class="flaticon-list23">
+							<br/>
+							More </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Service Type Ambulance -->
+		<div data-role="page" id="type-ambulance"  data-theme="a">
+			<div data-role="header" class="bodyHeader"data-position="fixed">
+				<h3>Service Type</h3>
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 23px;">Customize</a>
+			</div>
+
+			<div data-role="content">
+				<div>
+					<ul data-role="listview" style="padding:10px;">
+						<li data-role="list-divider" style="background-color: #F8494A; padding:4%;" >
+							Ambulance
+						</li>
+					</ul>
+					<ul class="ambulanceList" data-role="listview" style="padding:10px;">
+						<li data-icon="false" id="a1">
+							<a data-rel="back" class="margin-shadow collapse-left-pad" value="Hospitals">Hospitals</a>
+						</li>
+						<li data-icon="false" id="a2">
+							<a data-rel="back" class="margin-shadow collapse-left-pad" value="A &amp; E">A &amp; E</a>
+						</li>
+						<li data-icon="false" id="a3">
+							<a data-rel="back" class="margin-shadow collapse-left-pad" value="Outpatient<br/>Appointments">Outpatient Appointments</a>
+						</li>
+						<li data-icon="false" id="a4">
+							<a data-rel="back" class="margin-shadow collapse-left-pad" value="Dialysis">Dialysis</a>
+						</li>
+						<li data-icon="false" id="a5">
+							<a data-rel="back" class="margin-shadow collapse-left-pad" value="Treatment">Treatment</a>
+						</li>
+						<li data-icon="false" id="a6">
+							<a data-rel="back" class="margin-shadow collapse-left-pad" value="Others">Others</a>
+						</li>
+					</ul>
+
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Service Type Medical Transport-->
+		<div data-role="page" id="type-medical" >
+			<div data-role="header" class="bodyHeader"  data-position="fixed">
+				<h3>Service Type</h3>
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 23px;">Customize</a>
+			</div>
+
+			<div data-role="content">
+				<div>
+					<ul data-role="listview" style="padding:10px;">
+						<li  data-role="list-divider" style="background-color: #F8494A; padding:4%;" >
+							Medical Transport
+						</li>
+					</ul>
+					<ul class="medicalList"data-role="listview" style="padding:10px;">
+						<li data-icon="false" id="m1">
+							<a data-rel="back" class="margin-shadow collapse-left-pad" value="Outpatient<br/>Appointments">Outpatient Appointments</a>
+						</li>
+						<li data-icon="false" id="m2">
+							<a data-rel="back" class="margin-shadow collapse-left-pad" value="Dialysis">Dialysis</a>
+						</li>
+						<li data-icon="false" id="m3">
+							<a data-rel="back" class="margin-shadow collapse-left-pad" value="Treatment">Treatment</a>
+						</li>
+						<li data-icon="false" id="m4">
+							<a data-rel="back" class="margin-shadow collapse-left-pad" value="Others">Others</a>
+						</li>
+					</ul>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<!--Page Match-->
+		<div id="match" data-role="page">
+			<div data-role="header"class="bodyHeader" data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>Match</h1>
+			</div>
+
+			<div data-role="content" >
+				<div style="background-color: #a4a4a4;">
+					<div class="head-back">
+						<img src="img/match_status.jpg" width="100%"/>
+					</div>
+				</div>
+
+				<div class="xyz">
+					<div id="byName">
+						<a id="byNameC" href="#" data-role="button" data-transition="none" class="active xyz1 box2" onclick="byName()"> By Name</a>
+					</div>
+					<div id="byPrice">
+						<a id="byPriceC" href="#" data-role="button" data-transition="none" class="box2"  onclick="byPrice()"> By Price</a>
+					</div>
+					<div id="byRating">
+						<a  id="byRatingC" href="#" data-role="button" data-transition="none" class="box2"  onclick="byRating()"> By Rating</a>
+					</div>
+				</div>
+				<div class=" "style="padding:5px;">
+					<label style="color: white;">VendorsListPage</label>
+					<ul class="vendorList" style=" height: 190px;overflow: auto;" data-role="listview">
+
+					</ul>
+					<div data-role="popup" id="popupLoader" data-overlay-theme="b" class="flaticon-position3 homeIcon"
+					data-theme="b" data-dismissible="false" style="max-width:400px;"></div>
+				</div>
+
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar" class="footer-padding">
+					<ul>
+						<li class="tabsItem">
+							<a  href="#booking" data-role="tab" data-transition="none" class="flaticon-edit38 ui-btn-active active">
+							<br/>
+							Booking </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#select-date" data-role="tab" data-transition="none"class="flaticon-round27">
+							<br/>
+							History </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#profile" data-role="tab"data-transition="none" class="flaticon-list23">
+							<br/>
+							More </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!--Page Match-->
+		<div id="match-detail" data-role="page">
+			<div data-role="header"class="bodyHeader" data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>Vendor Details</h1>
+			</div>
+
+			<div data-role="content" >
+				<div style="background-color: #a4a4a4;">
+					<div class="head-back">
+						<img src="img/match_status.jpg" width="100%"/>
+					</div>
+				</div>
+				<div class="ui-grid-b box">
+					<div class="ui-block-a">
+						<div style="height:100px"><img src="img/ambulance.png" style="height:100px"/>
+						</div>
+					</div>
+					<div class="ui-block-b" style="padding-top:15px;">
+						<div class="ui-bar" style="height:75px;">
+							<div class="grey " id="vendor-name">
+								<label> vendor name</label><span>&#x2605;</span>
+								<span>&#x2605;</span><span>&#x2606;</span><span>&#x2606;</span><span>&#x2606;</span>
+							</div>
+						</div>
+					</div>
+					<div class="ui-block-c"style="padding-top:15px;">
+						<div class="ui-bar" id="vendor-price" style="height:75px">
+							<label style="font-size: xx-large;">$80</label>
+						</div>
+					</div>
+				</div><!-- /grid-c -->
+
+				<div class="box grey"style="min-height: 60px;padding:11px;">
+					<label class="" style="text-align: left;">Description</label>
+					<div style=" text-align: justify;padding-left:8px;">
+						<p>
+							Communicating with people outside the organization,representing to customers,the public,government, and other external sources.
+						</p>
+					</div><!-- /Description -->
+				</div>
+				<div class="box grey"style="min-height: 60px;padding:11px;">
+					<label class="" style="text-align: left;">T&C</label>
+					<div style="text-align: justify;padding-left:8px;">
+						<p>
+							This information can be exchanged in person, in writing, or by
+							telephone or e-mail.
+
+						</p>
+					</div><!-- /t&c -->
+				</div>
+				<div>
+					<button onclick="createB('#match-detail','#confirm-payment')" class="btn3 no-shadow margin-auto box">
+						Select
+					</button>
+				</div>
+
+			</div>
+		</div>
+
+		<!--Page Confirm-->
+		<div data-role="page" id="confirm-payment"  data-theme="a">
+			<div data-role="header" class="bodyHeader"data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>Confirm</h1>
+			</div>
+			<div data-role="content">
+
+				<div style="background-color: #a4a4a4;">
+					<div class="head-back">
+						<img src="img/confirm_status.jpg" width="100%"/>
+					</div>
+				</div>
+
+				<div class="ui-grid-b box">
+					<div class="ui-block-a">
+						<div style="height:100px"><img src="img/ambulance.png" style="height:100px"/>
+						</div>
+					</div>
+					<div class="ui-block-b" style="padding-top:15px;">
+						<div class="ui-bar" style="height:75px;">
+							<div class="grey " id="vendor-name">
+								<label> vendor name</label><span>&#x2605;</span>
+								<span>&#x2605;</span><span>&#x2606;</span><span>&#x2606;</span><span>&#x2606;</span>
+							</div>
+						</div>
+					</div>
+					<div class="ui-block-c"style="padding-top:15px;">
+						<div class="ui-bar" id="vendor-price" style="height:75px">
+							<label style="font-size: xx-large;">$80</label>
+						</div>
+					</div>
+				</div><!-- /grid-c -->
+
+				<div class="grey box" style="min-height:80px">
+					<label class=""style="font-size:12px;"><b>Sep 7, 11:30pm</b></label>
+					<div>
+						<label class="">From : Alex Hospital</label>
+						<p class=""style="text-align: justify;padding-left:10px;">
+							Pick me up at block C and I will be waiting
+						</p>
+					</div>
+				</div>
+				<div class="grey box" style="min-height:80px">
+					<div>
+						<label >To: Upper Bukit Timah</label>
+						<p class=""style="text-align: justify;padding-left:10px;">
+							Please help me to my unit, Block 120 #12-234, Also.....
+						</p>
+					</div>
+				</div>
+				<div class="grey box" style="min-height:60px">
+					<div>
+						<label >By Lentor Ambulance</label>
+						<div style="text-align: justify;padding-left:8px;">
+							<p class="">
+								Fee: S$80
+							</p>
+							<p class="">
+								Other: S$0
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="grey">
+					<div style="text-align: center;">
+						<label class="fontMedium">Total Price: S$80</label>
+					</div>
+				</div>
+				<button id="paymentTypeButton" onclick="nextPage('#confirm','#paymentType')" class="btn3 no-shadow margin-auto box" >
+					Payment
+				</button>
+				<button id="confirmButton" class="btn3-dark no-shadow margin-auto box" >
+					Confirm
+				</button>
+
+			</div><!--Content-->
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar" class="footer-padding">
+					<ul>
+						<li class="tabsItem">
+							<a  href="#booking" data-role="tab" data-transition="none" class="flaticon-edit38 ui-btn-active active">
+							<br/>
+							Booking </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#select-date" data-role="tab" data-transition="none"class="flaticon-round27">
+							<br/>
+							History </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#profile" data-role="tab"data-transition="none" class="flaticon-list23">
+							<br/>
+							More </a>
+						</li>
+					</ul>
+				</div>
+			</div><!--Footer-->
+
+		</div>
+
+		<!-- Credit paymentType -->
+		<div data-role="page" id="paymentType"  data-theme="a">
+			<div data-role="header" class="bodyHeader"data-position="fixed">
+				<h3>Payment Type</h3>
+			</div>
+			<div data-role="content" style="padding:5%; " >
+				<button id="creditType" onclick="nextPage('#card-payment','#card-payment')" class="btn3 no-shadow margin-auto box">
+					Credit Card
+				</button>
+
+				<button id="cashType" onclick="nextPage('#cashType','#confirm-payment')" class="btn3 no-shadow margin-auto box">
+					Cash
+				</button>
+
+			</div>
+
+		</div>
+
+		<!-- Credit Card Payment -->
+		<div data-role="page" id="card-payment"  data-theme="a">
+			<div data-role="header" class="bodyHeader"data-position="fixed">
+				<h3>Payment Confirm</h3>
+			</div>
+			<div data-role="content" style="padding:5%; " >
+
+				<label>Card Holder Name</label>
+				<div class="" >
+					<input class="input box2" type="text" placeholder="Tim Man Shu">
+				</div>
+				<br/>
+				<label>Card Number</label>
+				<div class="" >
+					<input class="input box2" type="text" placeholder="X0XX XXXX XXXX XXXX">
+				</div>
+				<br/>
+				<div class="grey">
+
+					<ul>
+						<li  style="display: inline;float: left; width: 25%; margin:2%">
+							<label for="cardExpMonth">Expiration Date</label>
+						</li>
+						<li  style="display: inline;float: left; width: 30%;margin:2%;">
+							<select name="cardExpMonth" id="cardExpMonth" size="1">
+								<option value="1" selected>01</option>
+								<option value="2">02</option>
+								<option value="3">03</option>
+								<option value="4">04</option>
+								<option value="5">05</option>
+								<option value="6">06</option>
+								<option value="7">07</option>
+								<option value="8">08</option>
+								<option value="9">09</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>
+						</li>
+						<li   style="display: inline;float: left; width: 30%;margin:2%; text-align: center;">
+							<select name="cardExpYear" id="cardExpYear" size="1">
+								<option value="2014" selected>2014</option>
+								<option value="2015">2015</option>
+								<option value="2014">2016</option>
+								<option value="2015">2017</option>
+								<option value="2014">2018</option>
+								<option value="2015">2019</option>
+								<option value="2014">2020</option>
+								<option value="2015">2021</option>
+							</select>
+						</li>
+					</ul>
+				</div>
+
+				</label>
+
+				<br/>
+				<br/>
+				<div>
+					<button onclick="nextPage('#creditType','#confirm-payment')" class="btn2-dark no-shadow margin-auto box">
+						Continue
+					</button>
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- select-date -->
+		<div data-role="page"  id="select-date" data-theme="a">
+			<div data-role="header" class="bodyHeader" data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h3>View Bookings</h3>			
+				
+			</div>
+
+			<div data-role="content">
+				<div id="datepicker-2"  style= "width: 240px; margin: 0 auto;"></div>				
+				<div>
+					<ul class="bookingList" data-role="listview" style="padding:10px;">
+					</ul>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar" class="footer-padding">
+					<ul>
+						<li class="tabsItem">
+							<a  href="#booking" data-role="tab" data-transition="none" class="flaticon-edit38 ">
+							<br/>
+							Booking </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#select-date" data-role="tab" data-transition="none"class="flaticon-round27 ui-btn-active active">
+							<br/>
+							History </a>
+						</li>
+						<li class="tabsItem">
+							<a  href="#profile" data-role="tab"data-transition="none" class="flaticon-list23">
+							<br/>
+							More </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--Page booking-detail-->
+		<div data-role="page" id="booking-detail"  data-theme="a">
+			<div data-role="header" class="bodyHeader"data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>Booking Detail</h1>
+			</div>
+			<div data-role="content">
+				
+				<div style="padding:10px;" class="buttonShadow">
+					<div style="width:100%;height:50%;min-height:100px;"> 
+						<div style="width:40%;height:100%;float:left;"> 
+							<img src="img/ambulance.png" style="height:100px"/>
+					    </div>
+						<div style="width:60%;height:100%;float:right;padding-top:20px;">
+							<div class="grey ">
+							<label  id="bkd_vendor_name">Lentor Ambulance</label>
+							<span>&#x2605;</span><span>&#x2605;</span><span>&#x2605;</span><span>&#x2606;</span><span>&#x2606;</span>
+						    </div>
+						</div>
+					</div>
+				</div>
+				<div style="padding:10px;" class="buttonShadow">
+					<div style="width:100%;height:50%;min-height:43px;"> 
+						<div style="width:50%;height:100%;float:left;"> 
+							<button class="btn3-temp no-shadow margin-auto buttonShadow" >Call</button>
+					    </div>
+						<div style="width:50%;height:100%;float:right">
+							<button class="btn3-temp no-shadow margin-auto buttonShadow">Trace</button>
+						 </div>
+					</div>
+					<div style="width:100%;height:50%;min-height:43px;"> 
+						<div style="width:50%;height:100%;float:left;"> 
+							<button class="btn3-temp no-shadow margin-auto buttonShadow" >Feedback</button>
+					    </div>
+						<div style="width:50%;height:100%;float:right">
+							<button class="btn3-temp no-shadow margin-auto buttonShadow" >Cancel</button>
+						 </div>
+					</div>
+				</div>
+				<div class="grey xbox padding-left" >
+					<label class=""style="font-size:12px;"><b  id="bkd_date">Sep 7, 11:30pm</b></label>
+				</div>
+				<div class="grey box padding-left a" style="min-height:80px">					
+					<div>
+						<label  id="bkd_from">From : Alex Hospital</label>
+						<p class=""style="text-align: justify;padding-left:10px;"  id="bkd_fnote">
+							Pick me up at block C and I will be waiting
+						</p>
+					</div>
+				</div>
+				<div class="grey box padding-left" style="min-height:80px">
+					<div>
+						<label  id="bkd_to">To: Upper Bukit Timah</label>
+						<p class=""style="text-align: justify;padding-left:10px;"  id="bkd_tnote">
+							Please help me to my unit, Block 120 #12-234, Also.....
+						</p>
+					</div>
+				</div>
+				<div class="grey box padding-left" style="min-height:60px">
+					<div>
+						<label  id="bkd_vendor_name1">By Lentor Ambulance <b>(Total Price: S$80)</b></label>
+						<div style="text-align: justify;padding-left:8px;">
+							<p><span>Fee: S$80</span><br/>
+							<span>Other: S$0</span>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="grey box padding-left" style="min-height:60px">
+					<div>
+						<label >Service Type</label>
+						<div style="text-align: justify;padding-left:8px;">
+							<p><span>Ambulance Type</span><br/>
+							<span>Hospital</span>
+							</p>							
+						</div>
+					</div>
+				</div>
+				
+				<div class="grey box padding-left" style="min-height:60px">
+					<div>
+						<label >Payment Mode</label>
+						<div style="text-align: justify;padding-left:8px;">
+							<p><span>Card(Credit Card)</span><br/>
+							<span>$80</span>
+							</p>							
+						</div>
+					</div>
+				</div>
+
+			</div><!--Content-->
+
+		</div>
+		
+		<!--Page personal_info-->
+		<div data-role="page" id="personal_info"  data-theme="a">
+			<div data-role="header" class="bodyHeader"data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>Personal Info</h1>
+			</div>
+			<div data-role="content" style="padding:5%;">
+                <label class="bottom-space">Full Name</label>
+					<input class="input box2 " type="text" id="pers_full_name" placeholder="full name">
+				<br/>
+                <label class="bottom-space">Address</label>
+					<input class="input box2" type="text" id="pers_address" placeholder="address">
+				<br>
+				<div class="hidden">
+					<script>
+						var personal_info = [pers_full_name, pers_address];
+					</script>
+				</div>
+				<div class="margin">
+						<button class="ui-btn ui-corner-all btn3-dark-alt margin-auto" onclick="personal_o(personal_info)" >
+							Save
+						</button>
+				</div>				
+			</div><!--Content-->
+
+		</div>
+		
+		
+		
+		<!--Page medical_info-->
+		<div data-role="page" id="medical_info"  data-theme="a">
+			<div data-role="header" class="bodyHeader"data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>Medical Info</h1>
+			</div>
+			<div data-role="content" style="padding:5%;">
+               
+                <label class="bottom-space">Medical History</label>
+					<textarea class="input box2" type="text" id="user_medical_info" placeholder="medical history"></textarea>					
+				<br>
+				<div class="margin">
+						<button class="ui-btn ui-corner-all btn3-dark-alt margin-auto" onclick="userMedicalInfo([user_medical_info])" >
+							Save
+						</button>
+				</div>			
+			</div><!--Content-->
+
+		</div>
+		
+		
+		
+		<!--Page payment_info-->
+		<div data-role="page" id="payment_info"  data-theme="a">
+			<div data-role="header" class="bodyHeader"data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>Payment Info</h1>
+			</div>
+			<div data-role="content" style="padding:5%;">		
+
+				<label class="bottom-space">Card Holder Name</label>
+				<div class="box2" >
+					<input class="input" id="cardholdername" type="text" placeholder="Card Holder Name">
+				</div>
+				<br/>
+				<label class="bottom-space">Card Number</label>
+				<div class="box2">
+					<input class="input" id="cardnumber" type="text" placeholder="Card Number">
+				</div>
+				<br/>
+				<label class="bottom-space">Expiry Date</label>
+				<div class="box2">
+					<input class="input demo-test-datetime2" id="cardexpiry" type="text" placeholder="Card Expiry Info">
+				</div>
+				<br/>
+				<label class="bottom-space">CVV </label>
+				<div class="box2">
+					<input class="input"  id="cardcvv" type="text" placeholder="Card CVV Digits">
+				</div>							
+				<br/>
+				<div style="vertical-align: middle !important;">
+					<button class="ui-btn ui-corner-all btn3-dark-alt margin-auto" onclick="cardInfo('#profile')">
+						Save
+					</button>
+				</div>
+			</div>
+		</div>
+
+
+		<!--Page about_us-->
+		<div data-role="page" id="about_us"  data-theme="a">
+			<div data-role="header" class="bodyHeader"data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>About Us</h1>
+			</div>
+			<div data-role="content">
+				  <div class="grey box" style="min-height:100px">
+								<div class="ui-block-a">
+									<div style="height:100px"><img src="img/ambulance.png" style="height:100px"/>
+									</div>
+								</div>
+								<div class="ui-block-b" style="padding-top:15px;">
+									<div class="ui-bar" style="height:75px;">
+										<div class="grey " id="vendor-name">
+											<label>Ambulance app</label><span>&#x2605;</span>
+											<span>&#x2605;</span><span>&#x2606;</span><span>&#x2606;</span><span>&#x2606;</span>
+										</div>
+									</div>
+								</div>
+								
+				  </div>
+	              <div class="grey box" style="min-height:60px">
+		                <p>
+		                    AmbulanceApp is a tech startup that is revitalizing the ambulance industry. We want to
+		                    improve the safety and efficiency of our ambulance by leveraging on advancements in GPS
+		                    and mobile technology.
+		                </p>
+		                <p>
+		                    As a for-profit social-enterprise, we belive that business and social-value can be achieved in parallel.
+		                </p>
+		                <div style="text-align: center;">
+		                    <a href="#" style="text-decoration:none;color: grey;" > ambulanceapp.com </a>
+		                </div>
+		                <div style="padding:10px;margin: 10px;">
+			                <a style="float:left" href=""> PRIVACY POLICY </a>
+	                        <a  style="float:right" href=""> TERMS OF USE </a>
+                       </div>
+				  </div>
+				 
+			</div><!--Content-->
+
+		</div>
+		
+		
+		<!--Page help-->
+		<div data-role="page" id="help"  data-theme="a">
+			<div data-role="header" class="bodyHeader"data-position="fixed">
+				<a class="header-btn ui-nodisc-icon"  data-icon="back"  data-rel="back" style="padding-left: 20px;">BACK</a>
+				<h1>Help</h1>
+			</div>
+			<div data-role="content">
+              <div class="grey box" style="min-height:60px">
+					<label>Help! You</label>
+				</div>
+
+			</div><!--Content-->
+
+		</div>		
+		<!--<script type="text/javascript" src="cordova.js"></script>-->
+		<!-- <script type="text/javascript" src="painlessfs.js"></script> -->
+		<script type="text/javascript" src="js/map-logic.js"></script>
+		<script type="text/javascript" src="lib/js/slick.min.js"></script>
+
+	</body>
+</html>
