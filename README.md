@@ -1,0 +1,29 @@
+# [Ambulance App -"Uber for ambulance" app which helps in booking, tracking and payments of ambulance.](http://www.technolabs.in/showcase/ambulanceapp)
+
+![Ambulance App](/docs/screenshots/aa0001.png "Ambulance App")
+
+Ambulance app is "Uber for ambulance" app which helps in booking, tracking and payments of ambulance. It also provides ambulance drivers with own app for managing bookings.
+
+## Disclaimer
+Please note that shared code is only for portfolio demonstration and learning purposes only. By no means, its final working version of system. We have shared Alpha version(code) of system after approval from our client.
+
+## User App Features
++ User registration and profile creation
++ Preferred vendors selection
++ Easy ambulance booking
++ Select ambulance on basis of rating and other parameters
++ Payments to ambulance
++ Track ambulance
++ Notification and alerts
++ Review and feedback
+
+## Driver App Features
++ View own bookings
++ Manage own booking
++ Start tracker and iteract with clients
+
+## Admin UI & Server Features
++ Manage all users
++ Manage all bookings
++ Manage 
+
