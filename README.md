@@ -1,4 +1,4 @@
-# [Ambulance App -"Uber for ambulance" app which helps in booking, tracking and payments of ambulance.](http://www.technolabs.in/showcase/ambulanceapp)
+# [Ambulance App -"Uber for ambulance"](http://www.technolabs.in/showcase/ambulanceapp)
 
 ![Ambulance App](/docs/screenshots/aa0001.png "Ambulance App")
 
@@ -25,5 +25,7 @@ Please note that shared code is only for portfolio demonstration and learning pu
 ## Admin UI & Server Features
 + Manage all users
 + Manage all bookings
-+ Manage 
++ Manage various vendors, pricing 
++ Manage master data 
++ Manage orders, payments, refund etc.
 
